@@ -1,4 +1,4 @@
-#include <iostream>
+п»ї#include <iostream>
 #include <fstream>
 #include <string>
 using namespace std; 
@@ -17,9 +17,9 @@ void main()
 			std::getline(fin, buffer);
 		}
 
-		fin.seekg(0, fin.end);//курсор в конец
-		int length = fin.tellg();//возвращает номер позиции
-		fin.seekg(0, fin.beg);//курсор в начало
+		fin.seekg(0, fin.end);//РєСѓСЂСЃРѕСЂ РІ РєРѕРЅРµС†
+		int length = fin.tellg();//РІРѕР·РІСЂР°С‰Р°РµС‚ РЅРѕРјРµСЂ РїРѕР·РёС†РёРё
+		fin.seekg(0, fin.beg);//РєСѓСЂСЃРѕСЂ РІ РЅР°С‡Р°Р»Рѕ
 		//cout << length << endl; //490
 
 		string* IP_address = new string[num_of_addresses]; 
