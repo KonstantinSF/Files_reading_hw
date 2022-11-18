@@ -13,8 +13,32 @@ void main()
 	{
 		std::string buffer; 
 		for (int i = 0; !fin.eof(); i++, num_of_lines++) std:: getline(fin, buffer);
-		cout << num_of_lines << endl; 
+		//cout << num_of_lines << endl;
+		//fin.seekg(0, fin.end);//курсор в конец
+		//int length = fin.tellg();//возвращает номер позиции
+		//fin.seekg(0, fin.beg);//курсор в начало
+		//cout << length << endl; //490 
+		fin.clear(); fin.seekg(0, fin.beg); 
+		std::string* IP = new string[num_of_lines]; 
+		std::string* MAC = new string[num_of_lines]; 
+		if (fin.is_open())
+		{
+			while (!fin.eof())
+			{
+			for (int i = 0; i < num_of_lines; i++)
+			{
+			std::getline(fin, IP[i], ' '); 
+			std::getline(fin, MAC[i]); 
+			MAC[i].erase(0, 8); 
+			cout << IP[i] << endl; 
+			cout << MAC[i] << endl; 
+			}
+			}
+			fin.close(); 
+		}
+		delete[] IP; 
+		delete[] MAC; 
+
 	}
 	else cerr << "File not found:(" << endl; 
-
 }
