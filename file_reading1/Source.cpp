@@ -25,14 +25,16 @@ void main()
 		{
 			while (!fin.eof())
 			{
-			for (int i = 0; i < num_of_lines; i++)
-			{
-			std::getline(fin, IP[i], ' '); 
-			std::getline(fin, MAC[i]); 
-			MAC[i].erase(0, 8); 
-			cout << IP[i] << endl; 
-			cout << MAC[i] << endl; 
-			}
+				for (int i = 0; i < num_of_lines; i++)
+				{
+					std::getline(fin, IP[i], ' '); 
+					std::getline(fin, MAC[i]); 
+					MAC[i].erase(0, 8); //delete from begin 8 digits
+#ifdef CHECK_READING
+					cout << IP[i] << endl;
+					cout << MAC[i] << endl;
+#endif // CHECK_READING
+				}
 			}
 			fin.close(); 
 		}
