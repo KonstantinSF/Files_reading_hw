@@ -52,10 +52,9 @@ void main()
 	std::string filename="201 ready.txt"; //консоль не создает файл!!!
 	std::fstream fout; 
 	fout.open("201 ready.txt"); 
-
-
+	for (int i=0; i<num_of_lines; i++) fout << MAC[i]<< "        " << IP[i]<< "\n";
 	fout.close();
-	system("notepad 201 ready.txt"); //запрос о создании файла идет отсюда
+	system("notepad 201 ready.txt"); //запрос о создании файла идет отсюда(
 
 
 
