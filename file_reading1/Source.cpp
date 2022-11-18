@@ -4,8 +4,8 @@
 using namespace std; 
 
 #define READ_FROM_BASE_FILE
-//#define WRITE_CHANGE_PLACES
-//#define WRITE_HOSTS
+#define WRITE_CHANGE_PLACES
+#define WRITE_HOSTS
 
 void main()
 {
@@ -13,6 +13,7 @@ void main()
 
 #ifdef READ_FROM_BASE_FILE
 	int num_of_lines = 0;
+	std::ofstream fout("201 ready.txt");
 	std::ifstream fin("201 RAW.txt");
 	if (fin.is_open())
 	{
@@ -41,14 +42,19 @@ void main()
 				std::getline(fin, MAC[i]);
 				MAC[i].erase(0, 8); //delete from begin 8 digits
 #ifndef CHECK_READING
-				cout << IP[i] << endl;
-				cout << MAC[i] << endl;
+				//cout << MAC[i] << "\t";
+				//cout << IP[i] << "\n";
+				//fout << MAC[i] << "\t";
+				//fout << IP[i] << "\n";
+
 #endif // !CHECK_READING
 			}
 		}
 		fin.close();
 	}
 	else cerr << "File not found:(" << endl;
+
+	//fout.close();
 #endif // READ_FROM_BASE_FILE
 	
 #ifdef CHECK_GLOBAL
@@ -58,12 +64,13 @@ void main()
 
 #ifdef WRITE_CHANGE_PLACES
 	std::string filename = "201 ready.txt"; //консоль не создает файл!!!
-	std::fstream fout;
-	fout.open("201 ready.txt");
+	//std::fstream fout;
+	//fout.open("201 ready.txt");
 	for (int i = 0; i < num_of_lines; i++) fout << MAC[i] << "        " << IP[i] << "\n";
 	fout.close();
 	system("notepad 201 ready.txt"); //запрос о создании файла идет отсюда(  
 #endif // WRITE_CHANGE_PLACES
+	//system("notepad 201 ready.txt"); //запрос о создании файла идет отсюда(  
 
 #ifdef WRITE_HOSTS
 	std::string filename2 = "201.dhcp.txt";
