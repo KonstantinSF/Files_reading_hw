@@ -34,7 +34,7 @@ void main()
 					std::getline(fin, IP[i], ' ');
 					std::getline(fin, MAC[i]);
 					MAC[i].erase(0, 8); //delete from begin 8 digits
-#ifndef CHECK_READING
+#ifdef CHECK_READING
 					cout << IP[i] << endl;
 					cout << MAC[i] << endl;
 #endif // !CHECK_READING
@@ -49,7 +49,16 @@ void main()
 	cout << MAC[11] << endl;
 #endif // CHECK_GLOBAL
 
-		delete[] IP;
-		delete[] MAC;
-	
+	std::string filename="201 ready.txt"; //консоль не создает файл!!!
+	std::fstream fout; 
+	fout.open("201 ready.txt"); 
+
+
+	fout.close();
+	system("notepad 201 ready.txt"); //запрос о создании файла идет отсюда
+
+
+
+delete[] IP;
+delete[] MAC;
 }
