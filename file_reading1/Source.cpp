@@ -4,8 +4,9 @@
 using namespace std; 
 
 #define READ_FROM_BASE_FILE
-#define WRITE_CHANGE_PLACES
-#define WRITE_HOSTS
+//#define WRITE_CHANGE_PLACES
+//#define WRITE_HOSTS
+
 void main()
 {
 	setlocale(LC_ALL, "");
@@ -38,7 +39,7 @@ void main()
 				std::getline(fin, IP[i], ' ');
 				std::getline(fin, MAC[i]);
 				MAC[i].erase(0, 8); //delete from begin 8 digits
-#ifdef CHECK_READING
+#ifndef CHECK_READING
 				cout << IP[i] << endl;
 				cout << MAC[i] << endl;
 #endif // !CHECK_READING
@@ -48,7 +49,6 @@ void main()
 	}
 	else cerr << "File not found:(" << endl;
 #endif // READ_FROM_BASE_FILE
-
 	
 #ifdef CHECK_GLOBAL
 	cout << IP[11] << endl;
