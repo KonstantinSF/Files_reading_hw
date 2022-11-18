@@ -18,7 +18,8 @@ void main()
 	{
 		std::string buffer;
 		for (int i = 0; !fin.eof(); i++, num_of_lines++) std::getline(fin, buffer);
-		fin.clear(); fin.seekg(0, fin.beg);
+		fin.clear(); //??? What do this func. do???//
+		fin.seekg(0, fin.beg);
 	}
 	else cerr << "File not found:(" << endl;
 
@@ -36,7 +37,7 @@ void main()
 		{
 			for (int i = 0; i < num_of_lines; i++)
 			{
-				std::getline(fin, IP[i], ' ');
+				std::getline(fin, IP[i], ' ');//??? How to relocate a cursor to new line when reading except of GETLINE ???
 				std::getline(fin, MAC[i]);
 				MAC[i].erase(0, 8); //delete from begin 8 digits
 #ifndef CHECK_READING
